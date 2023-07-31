@@ -10,5 +10,8 @@
   "dependencies": {
     "@apollo/server": "^4.7.5",
     "graphql": "^16.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
