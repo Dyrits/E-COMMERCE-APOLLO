@@ -16,6 +16,7 @@ type Product {
 type Category {
     id: ID!
     name: String!
+    products: [Product!]!
 }
 type Query {
     products: [Product!]!
@@ -34,6 +35,11 @@ const resolvers = {
     categories: () => categories,
     category: (_, { id }) => {
       return categories.find((category) => category.id === id);
+    }
+  },
+  Category: {
+    products: ({ id }) => {
+      return products.filter(({ category$id }) => category$id === id);
     }
   }
 };
