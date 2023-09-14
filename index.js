@@ -30,23 +30,15 @@ type Query {
 const resolvers = {
   Query: {
     products: () => products,
-    product: (_, { id }) => {
-      return products.find((product) => product.id === id);
-    },
+    product: (_, { id }) => products.find((product) => product.id === id),
     categories: () => categories,
-    category: (_, { id }) => {
-      return categories.find((category) => category.id === id);
-    }
+    category: (_, { id }) => categories.find((category) => category.id === id)
   },
   Product: {
-    category: ({ category$id }) => {
-      return categories.find(({ id }) => id === category$id);
-    }
+    category: ({ category$id }) => categories.find(({ id }) => id === category$id)
   },
   Category: {
-    products: ({ id }) => {
-      return products.filter(({ category$id }) => category$id === id);
-    }
+    products: ({ id }) => products.filter(({ category$id }) => category$id === id)
   }
 };
 
