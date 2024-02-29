@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { categories, products } from "./data/index.js";
+import { categories, products, reviews } from "./data/index.js";
 
 import typeDefs from "./schema/index.js";
 import resolvers from "./resolvers/index.js";
@@ -13,7 +13,8 @@ const server = new ApolloServer({
 const options = {
   context: () => ({
     products,
-    categories
+    categories,
+    reviews
   })
 };
 
